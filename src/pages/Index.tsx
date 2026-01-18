@@ -28,7 +28,7 @@ const Index = () => {
           <div className="text-center max-w-2xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-fade-up">
               Welcome to{" "}
-              <span className="text-accent">UniEasy</span>
+              <span className="text-primary">UniEasy</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 animate-fade-up stagger-1">
               Your one-stop platform for discovering food, accommodation, and amazing places around your university campus.
@@ -49,7 +49,7 @@ const Index = () => {
 
             <p className="mt-8 text-sm text-muted-foreground animate-fade-up stagger-3">
               Already have an account?{" "}
-              <Link to="/signup" className="text-accent font-medium hover:underline">
+              <Link to="/signup" className="text-primary font-medium hover:underline">
                 Sign in
               </Link>
             </p>

@@ -71,7 +71,7 @@ const SignupStep2 = () => {
           </p>
           <div className="mt-8 flex justify-center gap-4">
             <div className="w-3 h-3 rounded-full bg-primary-foreground/40" />
-            <div className="w-3 h-3 rounded-full bg-accent" />
+            <div className="w-3 h-3 rounded-full bg-white" />
           </div>
         </div>
       </div>
@@ -142,7 +142,7 @@ const SignupStep2 = () => {
                       onClick={() => setValue("year", year.value as "1" | "2" | "3" | "4" | "5", { shouldValidate: true })}
                       className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                         selectedYear === year.value
-                          ? "bg-accent text-accent-foreground"
+                          ? "bg-primary text-primary-foreground"
                           : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                       }`}
                     >
@@ -195,11 +195,11 @@ const SignupStep2 = () => {
               />
               <label htmlFor="terms" className="text-sm text-muted-foreground cursor-pointer">
                 I agree to the{" "}
-                <Link to="#" className="text-accent hover:underline">
+                <Link to="/terms" className="text-primary hover:underline">
                   Terms of Service
                 </Link>{" "}
                 and{" "}
-                <Link to="#" className="text-accent hover:underline">
+                <Link to="/privacy" className="text-primary hover:underline">
                   Privacy Policy
                 </Link>
               </label>

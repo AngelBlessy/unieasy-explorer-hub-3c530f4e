@@ -165,7 +165,7 @@ const SignupStep1 = () => {
 
           <p className="mt-6 text-center text-muted-foreground animate-fade-up">
             Already have an account?{" "}
-            <Link to="/" className="text-accent font-medium hover:underline">
+            <Link to="/" className="text-primary font-medium hover:underline">
               Sign in
             </Link>
           </p>
@@ -180,7 +180,7 @@ const SignupStep1 = () => {
             Your one-stop platform for discovering food, accommodation, and amazing places around your campus.
           </p>
           <div className="mt-8 flex justify-center gap-4">
-            <div className="w-3 h-3 rounded-full bg-accent" />
+            <div className="w-3 h-3 rounded-full bg-white" />
             <div className="w-3 h-3 rounded-full bg-primary-foreground/40" />
           </div>
         </div>
