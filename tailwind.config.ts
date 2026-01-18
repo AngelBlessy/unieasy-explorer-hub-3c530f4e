@@ -50,16 +50,16 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        coral: {
-          DEFAULT: "hsl(var(--coral))",
-          light: "hsl(var(--coral-light))",
+        emerald: {
+          DEFAULT: "hsl(var(--emerald))",
+          light: "hsl(var(--emerald-light))",
         },
-        navy: {
-          DEFAULT: "hsl(var(--navy))",
-          dark: "hsl(var(--navy-dark))",
+        slate: {
+          DEFAULT: "hsl(var(--slate))",
+          light: "hsl(var(--slate-light))",
         },
-        teal: "hsl(var(--teal))",
-        gold: "hsl(var(--gold))",
+        mint: "hsl(var(--mint))",
+        warm: "hsl(var(--warm))",
         success: "hsl(var(--success))",
       },
       borderRadius: {
@@ -68,6 +68,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
         xl: "calc(var(--radius) + 4px)",
         "2xl": "calc(var(--radius) + 8px)",
+        "3xl": "1.5rem",
       },
       boxShadow: {
         sm: "var(--shadow-sm)",

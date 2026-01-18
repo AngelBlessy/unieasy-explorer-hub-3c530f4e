@@ -39,7 +39,7 @@ const WhyUsSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 animate-fade-up">
-            Why Choose <span className="text-accent">UniEasy</span>?
+            Why Choose <span className="text-primary">UniEasy</span>?
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto animate-fade-up stagger-1">
             We're not just another listing platform. We're your campus companion that understands student life.
@@ -53,8 +53,8 @@ const WhyUsSection = () => {
               className="group bg-card rounded-2xl p-6 shadow-sm card-hover animate-fade-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
-                <feature.icon className="w-6 h-6 text-accent group-hover:text-accent-foreground transition-colors" />
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                <feature.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-2">
                 {feature.title}
