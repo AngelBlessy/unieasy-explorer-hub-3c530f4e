@@ -30,15 +30,7 @@ const Index = () => {
         {/* Header */}
         <header className="p-6 flex items-center justify-between">
           <Logo />
-          <div className="flex items-center gap-3">
-            <Link to="/merchant">
-              <Button variant="outline" size="sm" className="gap-2">
-                <Megaphone className="w-4 h-4" />
-                Run Your Advertisement
-              </Button>
-            </Link>
-            <ThemeToggle />
-          </div>
+          <ThemeToggle />
         </header>
 
         {/* Main Content */}
@@ -73,6 +65,16 @@ const Index = () => {
             </p>
           </div>
         </main>
+
+        {/* Run Your Advertisement - Bottom Right above Footer */}
+        <div className="flex justify-end px-6 pb-6">
+          <Link to="/merchant">
+            <Button variant="default" size="lg" className="gap-2 shadow-lg hover:shadow-xl transition-shadow">
+              <Megaphone className="w-5 h-5" />
+              Run Your Advertisement
+            </Button>
+          </Link>
+        </div>
       </div>
 
       {/* Footer */}
