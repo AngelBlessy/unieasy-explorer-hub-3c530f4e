@@ -1,18 +1,24 @@
 import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-image.jpg";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Video */}
       <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Students exploring campus"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate/70 via-slate/50 to-background" />
+        >
+          <source
+            src="https://videos.pexels.com/video-files/3769790/3769790-uhd_2560_1440_25fps.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div className="absolute inset-0 bg-black/50" />
       </div>
 
       {/* Content */}

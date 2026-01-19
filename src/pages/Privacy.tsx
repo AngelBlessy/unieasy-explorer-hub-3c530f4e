@@ -1,116 +1,165 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Shield, Eye, Lock, Database, Bell, Cookie, Globe, UserCheck, Mail } from "lucide-react";
+import Logo from "@/components/Logo";
+import Footer from "@/components/Footer";
+import ThemeToggle from "@/components/ThemeToggle";
+
+const sections = [
+  {
+    icon: Database,
+    title: "Information We Collect",
+    content: "We collect information you provide directly to us when you create an account, submit reviews, or contact support. This includes:",
+    items: [
+      "Account information: name, email address, phone number",
+      "University and course details for personalization",
+      "Reviews, ratings, and photos you submit",
+      "Device information and usage analytics",
+      "Communications with our support team"
+    ]
+  },
+  {
+    icon: Eye,
+    title: "How We Use Your Information",
+    content: "Your information helps us provide and improve our services:",
+    items: [
+      "Deliver and personalize your UniEasy experience",
+      "Send important updates, notifications, and recommendations",
+      "Analyze usage patterns to improve our platform",
+      "Respond to your inquiries and provide customer support",
+      "Detect, prevent, and address fraud or security issues"
+    ]
+  },
+  {
+    icon: Lock,
+    title: "Information Sharing & Security",
+    content: "We do not sell your personal information to third parties. We may share your data only with:",
+    items: [
+      "Service providers who help operate our platform",
+      "Law enforcement when required by applicable law",
+      "Other users (only your public profile and reviews)",
+      "Business partners with your explicit consent"
+    ]
+  },
+  {
+    icon: Cookie,
+    title: "Cookies & Tracking",
+    content: "We use cookies and similar technologies to enhance your experience, remember your preferences, and analyze how our platform is used. You can control cookie settings through your browser, though some features may not function properly if cookies are disabled."
+  },
+  {
+    icon: UserCheck,
+    title: "Your Rights & Choices",
+    content: "You have control over your personal information:",
+    items: [
+      "Access and download your personal data",
+      "Correct inaccurate or incomplete information",
+      "Delete your account and associated data",
+      "Opt out of marketing communications",
+      "Request data portability"
+    ]
+  },
+  {
+    icon: Bell,
+    title: "Updates to This Policy",
+    content: "We may update this Privacy Policy from time to time to reflect changes in our practices or for legal, operational, or regulatory reasons. We will notify you of any material changes by posting the new policy on this page with an updated effective date."
+  },
+  {
+    icon: Globe,
+    title: "Data Retention & Transfer",
+    content: "We retain your personal information for as long as necessary to provide our services and fulfill the purposes described in this policy. Your data may be transferred to and processed in countries other than your own, where data protection laws may differ."
+  },
+  {
+    icon: Mail,
+    title: "Contact Us",
+    content: "If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact our Data Protection Officer at privacy@unieasy.com. We aim to respond to all inquiries within 30 days."
+  }
+];
 
 const Privacy = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <main className="py-16 px-6">
-        <div className="container max-w-3xl mx-auto">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </Link>
+    <div className="min-h-screen bg-background flex flex-col">
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-6">
+            <Logo />
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </Link>
+          </div>
+          <ThemeToggle />
+        </div>
+      </header>
 
-          <h1 className="text-4xl font-bold text-foreground mb-8">Privacy Policy</h1>
-          
-          <div className="prose prose-slate dark:prose-invert max-w-none space-y-6 text-muted-foreground">
-            <p className="text-lg">
-              Last updated: January 18, 2026
+      <main className="flex-1 py-16 px-6">
+        <div className="container max-w-4xl mx-auto">
+          {/* Hero */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
+              <Shield className="w-8 h-8 text-primary" />
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Privacy Policy
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Your privacy is important to us. This policy explains how we collect, use, and protect your personal information.
             </p>
+            <p className="text-sm text-muted-foreground mt-4">
+              Last updated: January 19, 2026
+            </p>
+          </div>
+          
+          {/* Sections */}
+          <div className="space-y-8">
+            {sections.map((section, index) => (
+              <div 
+                key={index}
+                className="bg-card rounded-2xl p-8 border border-border hover:border-primary/30 transition-colors"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <section.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h2 className="text-xl font-semibold text-foreground mb-3">
+                      {index + 1}. {section.title}
+                    </h2>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {section.content}
+                    </p>
+                    {section.items && (
+                      <ul className="space-y-2 mt-3">
+                        {section.items.map((item, i) => (
+                          <li key={i} className="flex items-start gap-2 text-muted-foreground">
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
 
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">1. Information We Collect</h2>
-              <p>We collect information you provide directly to us, including:</p>
-              <ul className="list-disc pl-6 mt-2 space-y-2">
-                <li>Account information (name, email, phone number)</li>
-                <li>University and course details</li>
-                <li>Reviews and ratings you submit</li>
-                <li>Communications with our support team</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">2. How We Use Your Information</h2>
-              <p>We use the information we collect to:</p>
-              <ul className="list-disc pl-6 mt-2 space-y-2">
-                <li>Provide and improve our services</li>
-                <li>Personalize your experience</li>
-                <li>Send you updates and notifications</li>
-                <li>Respond to your requests and inquiries</li>
-                <li>Detect and prevent fraud or abuse</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">3. Information Sharing</h2>
-              <p>
-                We do not sell your personal information. We may share your information with:
-              </p>
-              <ul className="list-disc pl-6 mt-2 space-y-2">
-                <li>Service providers who assist our operations</li>
-                <li>Law enforcement when required by law</li>
-                <li>Other users (only your public profile and reviews)</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">4. Data Security</h2>
-              <p>
-                We implement appropriate security measures to protect your personal information. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">5. Your Rights</h2>
-              <p>You have the right to:</p>
-              <ul className="list-disc pl-6 mt-2 space-y-2">
-                <li>Access your personal information</li>
-                <li>Correct inaccurate information</li>
-                <li>Delete your account and data</li>
-                <li>Opt out of marketing communications</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">6. Cookies</h2>
-              <p>
-                We use cookies and similar technologies to enhance your experience, analyze usage patterns, and remember your preferences. You can control cookies through your browser settings.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">7. Third-Party Links</h2>
-              <p>
-                Our platform may contain links to third-party websites. We are not responsible for their privacy practices. Please review their privacy policies before providing any information.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">8. Children's Privacy</h2>
-              <p>
-                Our services are not intended for users under 16 years of age. We do not knowingly collect information from children under 16.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">9. Changes to This Policy</h2>
-              <p>
-                We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page with an updated date.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">10. Contact Us</h2>
-              <p>
-                If you have questions about this Privacy Policy, please contact us at privacy@unieasy.com
-              </p>
-            </section>
+          {/* Trust Badge */}
+          <div className="mt-12 p-6 bg-primary/5 rounded-2xl border border-primary/20 text-center">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <Lock className="w-5 h-5 text-primary" />
+              <span className="font-semibold text-foreground">Your Data is Safe With Us</span>
+            </div>
+            <p className="text-muted-foreground text-sm">
+              We use industry-standard encryption and security measures to protect your personal information.
+            </p>
           </div>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 };

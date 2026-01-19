@@ -1,96 +1,133 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Shield, FileText, Users, AlertTriangle, Scale, Mail } from "lucide-react";
+import Logo from "@/components/Logo";
+import Footer from "@/components/Footer";
+import ThemeToggle from "@/components/ThemeToggle";
+
+const sections = [
+  {
+    icon: Shield,
+    title: "Acceptance of Terms",
+    content: "By accessing and using UniEasy, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using this platform. These terms apply to all visitors, users, and others who access or use the service."
+  },
+  {
+    icon: FileText,
+    title: "Description of Service",
+    content: "UniEasy is a comprehensive platform designed specifically for university students to discover food spots, accommodation options, study zones, and other essential services around their campus. We aggregate and present information, reviews, and ratings to help you make informed decisions about places near your university."
+  },
+  {
+    icon: Users,
+    title: "User Accounts & Responsibilities",
+    content: "To access certain features, you must create an account with accurate, complete information. You are solely responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You must immediately notify us of any unauthorized use of your account or any other breach of security."
+  },
+  {
+    icon: AlertTriangle,
+    title: "Prohibited Conduct",
+    items: [
+      "Posting false, misleading, or defamatory information",
+      "Harassing, threatening, or abusing other users",
+      "Violating any applicable laws, regulations, or third-party rights",
+      "Attempting to gain unauthorized access to our systems or networks",
+      "Using the platform for commercial purposes without prior written consent",
+      "Uploading malicious code, viruses, or harmful content"
+    ]
+  },
+  {
+    icon: Scale,
+    title: "Disclaimer & Limitation of Liability",
+    content: "UniEasy provides information 'as is' without warranties of any kind, either express or implied. We do not guarantee the accuracy, completeness, reliability, or availability of any listings, reviews, or content. We shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the platform."
+  },
+  {
+    icon: Mail,
+    title: "Contact Information",
+    content: "If you have any questions about these Terms of Service, please contact us at legal@unieasy.com. We aim to respond to all inquiries within 48 business hours."
+  }
+];
 
 const Terms = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <main className="py-16 px-6">
-        <div className="container max-w-3xl mx-auto">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </Link>
+    <div className="min-h-screen bg-background flex flex-col">
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-6">
+            <Logo />
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </Link>
+          </div>
+          <ThemeToggle />
+        </div>
+      </header>
 
-          <h1 className="text-4xl font-bold text-foreground mb-8">Terms of Service</h1>
-          
-          <div className="prose prose-slate dark:prose-invert max-w-none space-y-6 text-muted-foreground">
-            <p className="text-lg">
-              Last updated: January 18, 2026
+      <main className="flex-1 py-16 px-6">
+        <div className="container max-w-4xl mx-auto">
+          {/* Hero */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
+              <FileText className="w-8 h-8 text-primary" />
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Terms of Service
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Please read these terms carefully before using UniEasy. By using our platform, you agree to these terms.
             </p>
+            <p className="text-sm text-muted-foreground mt-4">
+              Last updated: January 19, 2026
+            </p>
+          </div>
+          
+          {/* Sections */}
+          <div className="space-y-8">
+            {sections.map((section, index) => (
+              <div 
+                key={index}
+                className="bg-card rounded-2xl p-8 border border-border hover:border-primary/30 transition-colors"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <section.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h2 className="text-xl font-semibold text-foreground mb-3">
+                      {index + 1}. {section.title}
+                    </h2>
+                    {section.content && (
+                      <p className="text-muted-foreground leading-relaxed">
+                        {section.content}
+                      </p>
+                    )}
+                    {section.items && (
+                      <ul className="space-y-2 mt-2">
+                        {section.items.map((item, i) => (
+                          <li key={i} className="flex items-start gap-2 text-muted-foreground">
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
 
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">1. Acceptance of Terms</h2>
-              <p>
-                By accessing and using UniEasy, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our platform.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">2. Description of Service</h2>
-              <p>
-                UniEasy is a platform designed to help university students discover food spots, accommodation options, study zones, and other essential services around their campus. We provide information and reviews to help you make informed decisions.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">3. User Accounts</h2>
-              <p>
-                To access certain features, you must create an account. You are responsible for maintaining the confidentiality of your account credentials and for all activities under your account. You must provide accurate and complete information during registration.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">4. User Conduct</h2>
-              <p>You agree not to:</p>
-              <ul className="list-disc pl-6 mt-2 space-y-2">
-                <li>Post false or misleading information</li>
-                <li>Harass or abuse other users</li>
-                <li>Violate any applicable laws or regulations</li>
-                <li>Attempt to gain unauthorized access to our systems</li>
-                <li>Use the platform for any commercial purposes without permission</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">5. Content</h2>
-              <p>
-                Users may submit reviews, ratings, and other content. By submitting content, you grant UniEasy a non-exclusive, royalty-free license to use, display, and distribute that content on our platform.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">6. Disclaimer</h2>
-              <p>
-                UniEasy provides information "as is" without warranties of any kind. We do not guarantee the accuracy, completeness, or reliability of any listings or reviews. Always verify information independently before making decisions.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">7. Limitation of Liability</h2>
-              <p>
-                UniEasy shall not be liable for any indirect, incidental, or consequential damages arising from your use of the platform. Our total liability shall not exceed the amount you paid us, if any.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">8. Changes to Terms</h2>
-              <p>
-                We reserve the right to modify these terms at any time. Continued use of the platform after changes constitutes acceptance of the new terms.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">9. Contact</h2>
-              <p>
-                For questions about these Terms, contact us at support@unieasy.com
-              </p>
-            </section>
+          {/* Agreement Notice */}
+          <div className="mt-12 p-6 bg-primary/5 rounded-2xl border border-primary/20 text-center">
+            <p className="text-muted-foreground">
+              By continuing to use UniEasy, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.
+            </p>
           </div>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 };
