@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { signupStep1Schema, type SignupStep1Data } from "@/lib/validations";
 import Logo from "@/components/Logo";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const SignupStep1 = () => {
   const navigate = useNavigate();
@@ -41,6 +42,11 @@ const SignupStep1 = () => {
 
   return (
     <div className="min-h-screen bg-background flex">
+      {/* Theme Toggle */}
+      <div className="absolute top-6 right-6 z-50">
+        <ThemeToggle />
+      </div>
+      
       {/* Left side - Form */}
       <div className="flex-1 flex flex-col justify-center px-8 lg:px-16 xl:px-24">
         <div className="w-full max-w-md mx-auto">

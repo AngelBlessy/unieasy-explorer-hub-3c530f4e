@@ -1,26 +1,44 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Logo from "@/components/Logo";
-import heroImage from "@/assets/hero-image.jpg";
+import Footer from "@/components/Footer";
+import ThemeToggle from "@/components/ThemeToggle";
+import { Megaphone } from "lucide-react";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Background */}
+      {/* Background Video */}
       <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Campus life"
-          className="w-full h-full object-cover opacity-20"
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-30"
+        >
+          <source
+            src="https://videos.pexels.com/video-files/3769790/3769790-uhd_2560_1440_25fps.mp4"
+            type="video/mp4"
+          />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col">
         {/* Header */}
-        <header className="p-6">
+        <header className="p-6 flex items-center justify-between">
           <Logo />
+          <div className="flex items-center gap-3">
+            <Link to="/merchant">
+              <Button variant="outline" size="sm" className="gap-2">
+                <Megaphone className="w-4 h-4" />
+                Run Your Advertisement
+              </Button>
+            </Link>
+            <ThemeToggle />
+          </div>
         </header>
 
         {/* Main Content */}
@@ -55,11 +73,11 @@ const Index = () => {
             </p>
           </div>
         </main>
+      </div>
 
-        {/* Footer */}
-        <footer className="p-6 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} UniEasy. Built with ❤️ by students, for students.
-        </footer>
+      {/* Footer */}
+      <div className="relative z-10">
+        <Footer />
       </div>
     </div>
   );

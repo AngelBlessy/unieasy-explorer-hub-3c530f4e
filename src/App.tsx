@@ -11,6 +11,8 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
+import MerchantAuth from "./pages/MerchantAuth";
+import MerchantDashboard from "./pages/MerchantDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +32,8 @@ const App = () => (
             <Route path="/profile" element={<Profile />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/merchant" element={<MerchantAuth />} />
+            <Route path="/merchant/dashboard" element={<MerchantDashboard />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { signupStep2Schema, type SignupStep2Data } from "@/lib/validations";
 import Logo from "@/components/Logo";
+import ThemeToggle from "@/components/ThemeToggle";
 import { toast } from "sonner";
 
 const years = [
@@ -62,6 +63,11 @@ const SignupStep2 = () => {
 
   return (
     <div className="min-h-screen bg-background flex">
+      {/* Theme Toggle */}
+      <div className="absolute top-6 right-6 z-50">
+        <ThemeToggle />
+      </div>
+      
       {/* Left side - Decorative */}
       <div className="hidden lg:flex flex-1 hero-gradient items-center justify-center p-12">
         <div className="text-center text-primary-foreground animate-fade-up">
