@@ -1,5 +1,6 @@
 import { Utensils, Home, MapPin, MoreHorizontal, BookOpen, ArrowRight } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const categories = [
   {
@@ -10,6 +11,7 @@ const categories = [
     gradient: "from-orange-500 to-red-500",
     video: "https://videos.pexels.com/video-files/3298432/3298432-sd_640_360_30fps.mp4",
     count: "150+",
+    link: "/food",
   },
   {
     id: 2,
@@ -19,6 +21,7 @@ const categories = [
     gradient: "from-violet-500 to-purple-500",
     video: "https://videos.pexels.com/video-files/5998210/5998210-sd_640_360_25fps.mp4",
     count: "80+",
+    link: "/accommodation",
   },
   {
     id: 3,
@@ -28,6 +31,7 @@ const categories = [
     gradient: "from-emerald-500 to-teal-500",
     video: "https://videos.pexels.com/video-files/3571264/3571264-sd_640_360_30fps.mp4",
     count: "60+",
+    link: "/explore",
   },
   {
     id: 4,
@@ -37,6 +41,7 @@ const categories = [
     gradient: "from-blue-500 to-cyan-500",
     video: "https://videos.pexels.com/video-files/5676102/5676102-sd_640_360_25fps.mp4",
     count: "40+",
+    link: "/study",
   },
   {
     id: 5,
@@ -46,6 +51,7 @@ const categories = [
     gradient: "from-pink-500 to-rose-500",
     video: "https://videos.pexels.com/video-files/3195394/3195394-sd_640_360_25fps.mp4",
     count: "100+",
+    link: "/essentials",
   },
 ];
 
@@ -72,17 +78,18 @@ const CategoryCard = ({ category, index }: { category: typeof categories[0]; ind
   }, []);
 
   return (
-    <div
-      ref={cardRef}
-      className={`group relative flex-shrink-0 w-72 sm:w-80 cursor-pointer snap-start transition-all duration-700 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-      }`}
-      style={{ transitionDelay: `${index * 100}ms` }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Card with video background */}
-      <div className="relative h-80 sm:h-96 rounded-3xl overflow-hidden transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-2xl">
+    <Link to={category.link}>
+      <div
+        ref={cardRef}
+        className={`group relative flex-shrink-0 w-72 sm:w-80 cursor-pointer snap-start transition-all duration-700 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+        }`}
+        style={{ transitionDelay: `${index * 100}ms` }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Card with video background */}
+        <div className="relative h-80 sm:h-96 rounded-3xl overflow-hidden transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-2xl">
         {/* Video Background */}
         <video
           autoPlay
@@ -144,8 +151,9 @@ const CategoryCard = ({ category, index }: { category: typeof categories[0]; ind
             </div>
           </div>
         </div>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
