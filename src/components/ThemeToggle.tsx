@@ -10,7 +10,7 @@ const ThemeToggle = () => {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="rounded-full w-10 h-10"
+      className="rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 w-10 h-10 transition-all duration-300"
     >
       {theme === "dark" ? (
         <Sun className="w-5 h-5 text-foreground" />

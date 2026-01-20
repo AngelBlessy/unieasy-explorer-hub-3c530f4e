@@ -97,8 +97,11 @@ const CategoryCard = ({ category, index }: { category: typeof categories[0]; ind
         </video>
         
         {/* Gradient overlay */}
-        <div className={`absolute inset-0 bg-gradient-to-t ${category.gradient} opacity-60 mix-blend-multiply transition-opacity duration-500 ${isHovered ? "opacity-70" : "opacity-60"}`} />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+        <div className={`absolute inset-0 bg-gradient-to-t ${category.gradient} opacity-60 mix-blend-multiply transition-opacity duration-500`} />
+        <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-all duration-300 ${isHovered ? "from-black/90 via-black/50" : ""}`} />
+        
+        {/* Subtle darkening overlay on hover */}
+        <div className={`absolute inset-0 bg-black/0 transition-all duration-300 ${isHovered ? "bg-black/20" : ""}`} />
         
         {/* Animated border glow */}
         <div className={`absolute inset-0 rounded-3xl border-2 transition-all duration-500 ${isHovered ? "border-white/40 shadow-[inset_0_0_30px_rgba(255,255,255,0.1)]" : "border-white/0"}`} />
@@ -148,7 +151,7 @@ const CategoryCard = ({ category, index }: { category: typeof categories[0]; ind
 
 const CategoryCards = () => {
   return (
-    <section className="py-12 md:py-16 px-4 md:px-6 overflow-hidden">
+    <section id="category-cards" className="py-12 md:py-16 px-4 md:px-6 overflow-hidden">
       <div className="container mx-auto">
         <div className="flex items-center justify-between mb-6 md:mb-8">
           <div>

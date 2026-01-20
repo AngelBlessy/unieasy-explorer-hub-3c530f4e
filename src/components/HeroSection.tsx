@@ -1,24 +1,24 @@
-import { Search } from "lucide-react";
+import { Search, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
+  const scrollToCards = () => {
+    const cardsSection = document.getElementById("category-cards");
+    if (cardsSection) {
+      cardsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden -mt-16">
-      {/* Background Video - Full Screen */}
+      {/* Background Image */}
       <div className="absolute inset-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
+        <img
+          src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+          alt="University Campus"
           className="w-full h-full object-cover"
-        >
-          <source
-            src="https://videos.pexels.com/video-files/3769790/3769790-uhd_2560_1440_25fps.mp4"
-            type="video/mp4"
-          />
-        </video>
-        <div className="absolute inset-0 bg-black/50" />
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
       </div>
 
       {/* Content */}
@@ -33,13 +33,13 @@ const HeroSection = () => {
 
         {/* Search Bar */}
         <div className="max-w-2xl mx-auto animate-fade-up stagger-2">
-          <div className="bg-card/95 backdrop-blur-lg rounded-2xl p-2 flex flex-col sm:flex-row items-center gap-2 shadow-lg border border-border/50">
+          <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-2 flex flex-col sm:flex-row items-center gap-2 shadow-2xl border border-white/20">
             <div className="flex-1 flex items-center gap-3 px-4 w-full">
-              <Search className="w-5 h-5 text-muted-foreground flex-shrink-0" />
+              <Search className="w-5 h-5 text-white/70 flex-shrink-0" />
               <input
                 type="text"
                 placeholder="Search for food, hostels, places..."
-                className="flex-1 bg-transparent border-none outline-none text-foreground placeholder:text-muted-foreground py-3 w-full"
+                className="flex-1 bg-transparent border-none outline-none text-white placeholder:text-white/60 py-3 w-full"
               />
             </div>
             <Button size="lg" className="rounded-xl w-full sm:w-auto">
@@ -47,14 +47,20 @@ const HeroSection = () => {
             </Button>
           </div>
         </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
-          <div className="w-6 h-10 rounded-full border-2 border-white/50 flex items-start justify-center p-2">
-            <div className="w-1.5 h-3 bg-white/70 rounded-full animate-pulse" />
-          </div>
-        </div>
       </div>
+
+      {/* Scroll indicator - positioned below center */}
+      <button 
+        onClick={scrollToCards}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer group transition-all duration-300 hover:translate-y-1"
+      >
+        <span className="text-white/70 text-sm font-medium group-hover:text-white transition-colors">
+          Scroll to explore
+        </span>
+        <div className="w-10 h-14 rounded-full border-2 border-white/40 flex items-center justify-center group-hover:border-white/70 transition-colors">
+          <ChevronDown className="w-6 h-6 text-white/70 animate-bounce group-hover:text-white" />
+        </div>
+      </button>
     </section>
   );
 };
