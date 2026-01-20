@@ -57,6 +57,12 @@
     --shadow-md: 0 4px 20px hsl(222 30% 15% / 0.1);
     --shadow-lg: 0 8px 40px hsl(222 30% 15% / 0.15);
     --shadow-glow: 0 0 30px hsl(160 84% 39% / 0.3);
+
+    /* Footer dark colors */
+    --footer-bg: 222 47% 11%;
+    --footer-text: 210 40% 98%;
+    --footer-muted: 215 20% 65%;
+    --footer-border: 222 30% 20%;
   }
 
   .dark {
@@ -109,6 +115,12 @@
     --shadow-md: 0 4px 20px hsl(0 0% 0% / 0.4);
     --shadow-lg: 0 8px 40px hsl(0 0% 0% / 0.5);
     --shadow-glow: 0 0 30px hsl(160 84% 45% / 0.4);
+
+    /* Footer dark colors - even darker for dark mode */
+    --footer-bg: 222 47% 6%;
+    --footer-text: 210 40% 98%;
+    --footer-muted: 215 20% 55%;
+    --footer-border: 222 30% 15%;
   }
 }
 
